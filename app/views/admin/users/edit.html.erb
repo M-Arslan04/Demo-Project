@@ -1,0 +1,25 @@
+
+<%= form_for [:admin, @user] do |form|%>
+
+<div>
+<%= form.label :email%><br>
+<%= form.text_field :email, :readonly => true%>
+</div>
+
+<div class="mt-3">
+<%= form.label :name%><br>
+<%= form.text_field :name, :readonly => true%>
+</div>
+
+<div class="mb-5 mt-3">
+  <p> Role: </p>
+  <%= form.select :role_ids,options_for_select(@roles, @user.roles.collect {|d| d.id }) %>
+
+</div>
+
+<div>
+<%= form.submit %>
+</div>
+
+
+<% end %>

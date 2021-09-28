@@ -1,0 +1,45 @@
+
+<% if user_signed_in? %>
+  <% if current_user.has_role? :admin %>
+    <div class="d-flex justify-content-center align-items-center">
+        <h1>Admin Panel</h1>
+    </div>
+    <h1>Users</h1>
+    <div class="row ">
+        <% @users.each do |user|%>
+          <div class="card mb-2 ml-3 mr-3 " style="width: 18rem;">
+            <div class="card-body bg-dark text-white">
+              <h5 class="card-title">Name :<%= user.name %></h5>
+              <p class="card-text"><b>Email : </b><%= user.email%></p>
+              <p class="card-text"><b>UID : </b><%= user.id%></p>
+              <div class="card-text">
+
+                          <% user.roles.each do |role|%>
+                          <p> <b>Role : </b> <%= role.name %> </p>
+
+                          <% end %>
+              </div>
+                <% if !(user.has_role? :admin) %>
+                  <div class="btn  bg-light">
+                  <%= link_to "Edit", edit_admin_user_path(user) if !(user.has_role? :admin)%>
+                  </div>
+                <% end %>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  <% else %>
+  <div class="d-flex justify-content-center align-items-center">
+        <h1>Coming Soon</h1>
+    </div>
+
+  <% end %>
+
+  <% else%>
+  <div class="d-flex justify-content-center align-items-center">
+    <h1> <%= link_to "Sign Up", new_user_registration_path%> </h1>
+  </div>
+<% end %>
+
+
+
