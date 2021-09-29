@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise' , '>= 4.8.0'
 gem "rolify" , '>= 6.0.0'
+gem 'pundit', '~> 2.1', '>= 2.1.1'
 group :development, :test do
 gem 'awesome_print', '~> 1.9', '>= 1.9.2'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-center align-items-center">
+    <h1> Leads! </h1>
+</div>
+
+  <% @leads.each do |lead|%>
+       <h3>Title: <%= link_to lead.title, lead %> </h3>
+        <p> Client: <%= lead.client_name%> </p>
+  <% end %>
+
+<%= link_to "New Lead", new_lead_path%>

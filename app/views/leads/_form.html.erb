@@ -1,0 +1,71 @@
+
+<%= form_with model: lead do |form|%>
+<div>
+  <%= form.label :title%><br>
+  <%= form.text_field :title%>
+    <% lead.errors.full_messages_for(:title).each do |message|%>
+    <div><%= message%> </div>
+
+    <%end%>
+</div>
+
+<div>
+  <%= form.label :client_name%><br>
+  <%= form.text_field :client_name%>
+    <% lead.errors.full_messages_for(:client_name).each do |message|%>
+    <div><%= message%> </div>
+
+    <%end%>
+</div>
+
+<div>
+  <%= form.label :client_address%><br>
+  <%= form.text_area :client_address%>
+    <% lead.errors.full_messages_for(:client_address).each do |message|%>
+      <div><%= message%> </div>
+
+    <%end%>
+</div>
+
+<div>
+  <%= form.label :client_email%><br>
+  <%= form.text_field :client_email%>
+    <% lead.errors.full_messages_for(:client_email).each do |message|%>
+    <div><%= message%> </div>
+
+    <%end%>
+</div>
+
+<div>
+  <%= form.label :client_contact%><br>
+  <%= form.text_field :client_contact%>
+    <% lead.errors.full_messages_for(:client_contact).each do |message|%>
+    <div><%= message%> </div>
+
+    <%end%>
+</div>
+
+<div>
+  <%= form.label :platform_used%><br>
+  <%= form.text_field :platform_used%>
+    <% lead.errors.full_messages_for(:platform_used).each do |message|%>
+    <div><%= message%> </div>
+
+    <%end%>
+</div>
+
+<div>
+  <%= form.label :test_type%><br>
+  <%= form.text_field :test_type%>
+    <% lead.errors.full_messages_for(:test_type).each do |message|%>
+      <div><%= message%> </div>
+
+    <%end%>
+</div>
+
+<div>
+<%= form.submit%>
+</div>
+
+
+<% end %>

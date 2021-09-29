@@ -5,8 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :leads
   after_create :assign_default_role
-
   def assign_default_role
     add_role(:engineer) if roles.blank?
   end
