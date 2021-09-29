@@ -6,11 +6,9 @@ class Admin::UsersController < ApplicationController
 
   def edit
     @roles = {}
-    # Role.all.collect { |r| @roles[r.name] = r.id }.except(@roles[])
     Role.all.collect do |r|
       @roles[r.name] = r.id if r.name != 'admin'
     end
-    # byebug
   end
 
   def update

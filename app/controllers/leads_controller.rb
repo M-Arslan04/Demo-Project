@@ -14,7 +14,6 @@ class LeadsController < ApplicationController
   def create
     @lead = current_user.leads.new(lead_params)
 
-    byebug
     if @lead.save!
       redirect_to leads_path
     else

@@ -10,3 +10,8 @@
     <p class="card-text">Test Type: <%= @lead.test_type %></p>
   </div>
 </div>
+
+<%= render partial: "comments/comments", locals: {commentable: @lead}%>
+
+<h2>Add a review:</h2>
+<%= render partial: 'comments/form',  locals: {commentable: @lead}%>
