@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_30_080207) do
+ActiveRecord::Schema.define(version: 2021_09_30_124633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 2021_09_30_080207) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_leads_on_user_id"
+  end
+
+  create_table "phase_assignments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "phase_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["phase_id"], name: "index_phase_assignments_on_phase_id"
+    t.index ["user_id"], name: "index_phase_assignments_on_user_id"
   end
 
   create_table "phases", force: :cascade do |t|
@@ -81,5 +90,7 @@ ActiveRecord::Schema.define(version: 2021_09_30_080207) do
   end
 
   add_foreign_key "leads", "users"
+  add_foreign_key "phase_assignments", "phases"
+  add_foreign_key "phase_assignments", "users"
   add_foreign_key "phases", "leads"
 end

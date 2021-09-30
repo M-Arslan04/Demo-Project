@@ -15,7 +15,6 @@ class Phases::CommentsController < ApplicationController
     @comment = @phase.comments.new(comment_params)
     @comment.user = current_user
     @comment.save
-    byebug
     redirect_to lead_phase_path(@lead.id, @phase.id), notice: 'Your comment has been saved!'
   end
 

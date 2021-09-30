@@ -13,8 +13,7 @@ class Leads::CommentsController < ApplicationController
     @comment = @lead.comments.new(comment_params)
     @comment.user = current_user
     @comment.save
-    byebug
-    redirect_to lead_path, notice: 'Your comment has been saved!'
+    redirect_to lead_path(@lead), notice: 'Your comment has been saved!'
   end
 
   private

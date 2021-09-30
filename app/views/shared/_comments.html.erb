@@ -2,7 +2,11 @@
 
 <% commentable.comments.each do |comment|%>
   <div class="card-body bg-dark text-light mb-1" style="width:40%">
-    <%# <p> Name: <%= commentable.user.name%> </p> %>
+  <% if comment.commentable_type === "Lead" %>
+    <p> Name: <%= commentable.user.name  %> </p>
+  <% elsif comment.commentable_type === "Phase"%>
+    <p> Name: <%= comment.user.name  %> </p>
+  <% end %>
     <p>Comment: <%= comment.content %></p>
   </div>
 <% end %>

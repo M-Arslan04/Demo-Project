@@ -4,6 +4,7 @@
         <p> Start Date: <%= @phase.start_date %> </p>
         <p> End Date: <%= @phase.due_date %> </p>
 
+<%= link_to "Edit", edit_lead_phase_path(@lead.id, @phase.id)%>
 <%= render partial: "shared/comments", locals: {commentable: @phase}%>
 
 <h5>Add a comment below</h5>
