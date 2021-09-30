@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  start_date: 2021-09-30
+  due_date: 2021-09-30
+  lead: one
+
+two:
+  type: 
+  start_date: 2021-09-30
+  due_date: 2021-09-30
+  lead: two
