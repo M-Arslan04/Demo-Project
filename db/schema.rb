@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_30_064642) do
+ActiveRecord::Schema.define(version: 2021_09_30_080207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_09_30_064642) do
   end
 
   create_table "phases", force: :cascade do |t|
-    t.string "type"
+    t.string "phase_type"
     t.date "start_date"
     t.date "due_date"
     t.bigint "lead_id", null: false

@@ -1,1 +1,10 @@
-<h1> HI my name is Phase? </h1>
+<div class="d-flex justify-content-center align-items-center">
+    <h1> Phases for Lead # <%= @lead.id%> </h1>
+</div>
+
+  <% @phases.each do |phase|%>
+       <h3>Title: <%= link_to phase.phase_type, leads_path(@lead) %> </h3>
+        <p> Start Date: <%= phase.start_date %> </p>
+        <p> End Date: <%= phase.due_date %> </p>
+  <% end %>
+
