@@ -3,7 +3,7 @@
 </div>
 
   <% @phases.each do |phase|%>
-       <h3>Title: <%= link_to phase.phase_type, leads_path(@lead) %> </h3>
+       <h3>Title: <%= link_to phase.phase_type, lead_phase_path(@lead.id, phase.id) %> </h3>
         <p> Start Date: <%= phase.start_date %> </p>
         <p> End Date: <%= phase.due_date %> </p>
   <% end %>

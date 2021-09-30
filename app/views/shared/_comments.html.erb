@@ -2,7 +2,7 @@
 
 <% commentable.comments.each do |comment|%>
   <div class="card-body bg-dark text-light mb-1" style="width:40%">
-    <p> Name: <%= commentable.user.name%> </p>
+    <%# <p> Name: <%= commentable.user.name%> </p> %>
     <p>Comment: <%= comment.content %></p>
   </div>
 <% end %>

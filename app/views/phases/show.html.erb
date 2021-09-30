@@ -1,0 +1,10 @@
+<h3>WElcome to show of Phase <%= @phase.id%> </h3>
+
+       <h3>Title: <%= @phase.phase_type %> </h3>
+        <p> Start Date: <%= @phase.start_date %> </p>
+        <p> End Date: <%= @phase.due_date %> </p>
+
+<%= render partial: "shared/comments", locals: {commentable: @phase}%>
+
+<h5>Add a comment below</h5>
+<%= render partial: 'shared/form', locals: {commentable: @phase, path_prefix: @lead}%>
