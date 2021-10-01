@@ -3,7 +3,13 @@
        <h3>Title: <%= @phase.phase_type %> </h3>
         <p> Start Date: <%= @phase.start_date %> </p>
         <p> End Date: <%= @phase.due_date %> </p>
-
+        <p> <b> Assigned Manager:</b>
+                <%  if @assigned_manager != nil %>
+                        <%= @assigned_manager.name%>
+                <% else %>
+                        <span> Not assigned yet! </span>
+                <% end %>
+         </p>
 <%= link_to "Edit", edit_lead_phase_path(@lead.id, @phase.id)%>
 <%= render partial: "shared/comments", locals: {commentable: @phase}%>
 

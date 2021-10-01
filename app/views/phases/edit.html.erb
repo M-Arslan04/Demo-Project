@@ -1,5 +1,5 @@
 
-<%= form_for [@lead, @phase] do |form|%>
+<%= form_with model:[@lead, @phase] do |form|%>
 
   <div>
     <%= form.label :phase_type%><br>
@@ -15,10 +15,22 @@
     <%= form.label :due_date%><br>
     <%= form.text_field :due_date, :readonly => true%>
   </div>
-<%byebug%>
+<%# <%byebug%> %>
   <div class="mb-5 mt-3">
     <p> Role: </p>
-    <%= form.select :user_ids,options_for_select(@managers),selected: @managers.first %>
+    <% if @assigned_manager != nil %>
+        <span><b> Manager: </b> <%= @assigned_manager.name%> </span>
+        <div class="field mb-3">
+        <%= form.label :user_ids %><br>
+        <%# <%= form.select :user_ids, options_for_select(@engineers,selected: @engineers.first), options={multiple: true} %> %>
+        <%= select_tag :user_ids,
+              options_for_select(@engineers, selected: @engineers.first),
+              multiple: true %>
+
+        </div>
+    <% else %>
+        <%= form.select :user_ids,options_for_select(@managers),selected: @managers.first %>
+    <% end %>
   </div>
 
   <div>
