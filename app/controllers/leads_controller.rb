@@ -9,10 +9,12 @@ class LeadsController < ApplicationController
 
   def new
     @lead = Lead.new
+    authorize @lead
   end
 
   def create
     @lead = current_user.leads.new(lead_params)
+    authorize @lead
 
     if @lead.save!
       redirect_to leads_path

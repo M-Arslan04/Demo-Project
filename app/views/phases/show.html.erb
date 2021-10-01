@@ -9,8 +9,15 @@
                 <% else %>
                         <span> Not assigned yet! </span>
                 <% end %>
-         </p>
-<%= link_to "Edit", edit_lead_phase_path(@lead.id, @phase.id)%>
+        </p>
+        <% byebug %>
+        <p> <b> Assigned Engineers:</b> </p>
+        <% @assigned_engineer_arr.each do |engnr|%>
+        <p> <%= engnr.name if engnr.roles.first.name != "manager" %> </p>
+        <% end %>
+        <% if @phase.phase_assignments.empty? %>
+                <%= link_to "Edit", edit_lead_phase_path(@lead.id, @phase.id) %>
+        <% end %>
 <%= render partial: "shared/comments", locals: {commentable: @phase}%>
 
 <h5>Add a comment below</h5>

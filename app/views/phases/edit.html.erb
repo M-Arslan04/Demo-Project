@@ -22,7 +22,6 @@
         <span><b> Manager: </b> <%= @assigned_manager.name%> </span>
         <div class="field mb-3">
         <%= form.label :user_ids %><br>
-        <%# <%= form.select :user_ids, options_for_select(@engineers,selected: @engineers.first), options={multiple: true} %> %>
         <%= select_tag :user_ids,
               options_for_select(@engineers, selected: @engineers.first),
               multiple: true %>
