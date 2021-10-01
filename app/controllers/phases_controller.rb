@@ -37,7 +37,8 @@ class PhasesController < ApplicationController
 
   def update
     byebug
-    if params[:user_ids].length > 0
+    # if params[:user_ids].length > 0
+    if params[:user_ids].instance_of?(Array)
       @extra = params[:user_ids]
       @extra.each do |usid|
         @user = User.find(usid)
