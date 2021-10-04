@@ -1,10 +1,10 @@
-<%= form_with model: [ commentable, commentable.comments.build ] do |form| %>
+<%= form_with model: [ path_prefix, commentable, commentable.comments.build ] do |form| %>
   <p>
       <h5> User: <%= current_user.name%> </h5>
   </p>
 
   <p>
-    <%= form.label :content %><br>
+    <%= form.label :comment %><br>
     <%= form.text_area :content, placeholder: "Add a comment"%>
   </p>
   <p>

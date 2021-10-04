@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :users
   end
   resources :leads do
+    resources :phases do
+      resources :comments, module: :phases
+    end
     resources :comments, module: :leads
   end
 

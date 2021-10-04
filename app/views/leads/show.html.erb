@@ -1,6 +1,7 @@
 
 <div class="card mt-2 bg-secondary text-light" style="width: 44rem; border-color:"black"">
   <div class="card-body">
+    <h5 class="card-title">Created By: <%= @lead.user.name %></h5>
     <h5 class="card-title">Title: <%= @lead.title %></h5>
     <p class="card-text">Client Name: <%= @lead.client_name %></p>
     <p class="card-text">Client Address: <%= @lead.client_address %></p>
@@ -10,8 +11,9 @@
     <p class="card-text">Test Type: <%= @lead.test_type %></p>
   </div>
 </div>
+<p> <%= link_to "Create new phase", new_lead_phase_path(@lead.id)%> </p>
+<p> <%= link_to "Phases", lead_phases_path(@lead)%> </p>
+<%= render partial: "shared/comments", locals: {commentable: @lead}%>
 
-<%= render partial: "comments/comments", locals: {commentable: @lead}%>
-
-<h2>Add a review:</h2>
-<%= render partial: 'comments/form',  locals: {commentable: @lead}%>
+<h5>Add a comment below</h5>
+<%= render partial: 'shared/form',  locals: {commentable: @lead, path_prefix: nil}%>

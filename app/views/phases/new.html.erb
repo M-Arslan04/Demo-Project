@@ -1,0 +1,40 @@
+<h1> You can create new a phase here! </h1>
+
+<h3> Phase for Lead: <%= @lead.id %></h3>
+
+<%= form_with model: [@lead, @phase] do |form|%>
+<div>
+  <%= form.label :phase_type%><br>
+  <%= form.text_field :phase_type%>
+    <% @phase.errors.full_messages_for(:phase_type).each do |message|%>
+    <div><%= message%> </div>
+
+    <%end%>
+</div>
+
+<div>
+  <%= form.label :start_date, class: "mb-0 mt-2"%><br>
+  <%= form.date_field :start_date, as: :date, value: params[:start_date], placeholder: "yyyy-mm-dd", class: "mb-2"%>
+    <% @phase.errors.full_messages_for(:start_date).each do |message|%>
+    <div><%= message%> </div>
+
+    <%end%>
+</div>
+
+<div>
+  <%= form.label :due_date, class: "mb-0 mt-2" %><br>
+  <%= form.date_field :due_date,  as: :date, value: params[:due_date], placeholder: "yyyy-mm-dd", class: "mb-2"%>
+    <% @phase.errors.full_messages_for(:due_date).each do |message|%>
+      <div><%= message%> </div>
+
+    <%end%>
+</div>
+
+
+<div>
+<%= form.submit%>
+</div>
+
+
+<% end %>
+
