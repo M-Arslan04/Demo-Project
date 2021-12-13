@@ -14,6 +14,7 @@ class LeadsController < ApplicationController
 
   def create
     @lead = current_user.leads.new(lead_params)
+    # byebug
     authorize @lead
 
     if @lead.save!
